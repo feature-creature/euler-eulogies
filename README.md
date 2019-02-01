@@ -1,1 +1,1 @@
-# euler_eulogies
+# Euler Eulogies
