@@ -14,9 +14,12 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 '''
 
 
-
-
-
+def sumMultiplesOf3Or5(x):
+    sum = 0
+    for i in range(x):
+        if i % 3 == 0 or i % 5 == 0:
+            sum = sum + i
+    return sum
 
 
 
@@ -28,8 +31,8 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 def main():
     """invoke the main processes of the program"""
 
-
-
+    result = sumMultiplesOf3Or5(1000)
+    print(result)
 
 if __name__ == "__main__":
     main()
