@@ -14,13 +14,17 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 '''
 
 
-def sumMultiplesOf3Or5(x):
+def sumMultiplesOf3Or5(t):
     sum = 0
-    for i in range(x):
+    for i in range(t):
         if i % 3 == 0 or i % 5 == 0:
             sum = sum + i
     return sum
 
+
+def sumDivisibleBy(t,n):
+    p = t // n
+    return n*(p*(p+1))//2
 
 
 
@@ -33,6 +37,9 @@ def main():
 
     result = sumMultiplesOf3Or5(1000)
     print(result)
+
+    result2 = sumDivisibleBy(999,3) + sumDivisibleBy(999,5) - sumDivisibleBy(999,15)
+    print(result2)
 
 if __name__ == "__main__":
     main()
