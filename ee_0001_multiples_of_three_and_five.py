@@ -14,17 +14,32 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 '''
 
 
-def sumMultiplesOf3Or5(t):
+def sumMultiplesOfXOrY(t,x,y):
+    """
+    returns sum of all multiples of x or y of total t
+    time: O(n) linear
+    space: O(1) constant
+    """
     sum = 0
-    for i in range(t):
-        if i % 3 == 0 or i % 5 == 0:
+    for i in range(t+1):
+        if i % x == 0 or i % y == 0:
             sum = sum + i
     return sum
 
 
-def sumDivisibleBy(t,n):
-    p = t // n
-    return n*(p*(p+1))//2
+def sumDivisibleBy(t,x):
+    """
+    returns sum of all multiples of number x of total t
+    time: O(1) constant
+    space: O(1) constant
+
+    Simulates an incrementor
+    to the rounded nearest integer
+    of total t divided by multiple x
+    * x
+    """
+    p = t // x
+    return ((p*(p+1)) // 2) * x
 
 
 
@@ -33,12 +48,15 @@ def sumDivisibleBy(t,n):
 
 
 def main():
-    """invoke the main processes of the program"""
+    """Find the sum of all the multiples of 3 or 5 below the inputted value."""
+    input_target = int(input('target:'))
 
-    result = sumMultiplesOf3Or5(1000)
+    result = sumMultiplesOfXOrY(input_target,3,5)
     print(result)
 
-    result2 = sumDivisibleBy(999,3) + sumDivisibleBy(999,5) - sumDivisibleBy(999,15)
+    # sum the multiples of 3 and the multiples of 5 under 1000
+    # while removing any duplicate multiples
+    result2 = sumDivisibleBy(input_target,3) + sumDivisibleBy(input_target,5) - sumDivisibleBy(input_target,15)
     print(result2)
 
 if __name__ == "__main__":
